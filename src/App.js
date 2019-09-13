@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
+
+import React from 'react'
+import { Provider } from 'react-redux'
+import styled from 'styled-components'
+import GlobalStyle from './styles'
+import Routes from './routes'
+import store from './store'
+
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <Wrap>
+        <GlobalStyle />
+        <Routes />
+      </Wrap>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
